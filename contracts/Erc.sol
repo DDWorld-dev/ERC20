@@ -137,18 +137,14 @@ contract DDWorldShop {
     receive() external payable {
         uint tokensToBuy = msg.value; 
         require(tokensToBuy > 0, "not enough funds!");
-
         require(tokenBalance() >= tokensToBuy, "not enough tokens!");
-
         token.transfer(msg.sender, tokensToBuy);
         emit Bought(tokensToBuy, msg.sender);
     }
     function buy() external payable {
         uint tokensToBuy = msg.value; 
         require(tokensToBuy > 0, "not enough funds!");
-
         require(tokenBalance() >= tokensToBuy, "not enough tokens!");
-
         token.transfer(msg.sender, tokensToBuy);
         emit Bought(tokensToBuy, msg.sender);
     }
