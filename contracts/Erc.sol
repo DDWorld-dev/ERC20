@@ -133,14 +133,6 @@ contract DDWorldShop {
 
         emit Sold(_amountToSell, msg.sender);
     }
-
-    receive() external payable {
-        uint tokensToBuy = msg.value; 
-        require(tokensToBuy > 0, "not enough funds!");
-        require(tokenBalance() >= tokensToBuy, "not enough tokens!");
-        token.transfer(msg.sender, tokensToBuy);
-        emit Bought(tokensToBuy, msg.sender);
-    }
     function buy() external payable {
         uint tokensToBuy = msg.value; 
         require(tokensToBuy > 0, "not enough funds!");
@@ -149,6 +141,7 @@ contract DDWorldShop {
         emit Bought(tokensToBuy, msg.sender);
     }
 
+    
     function tokenBalance() public view returns(uint) {
         return token.balanceOf(address(this));
     }

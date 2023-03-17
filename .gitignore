@@ -10,3 +10,5 @@ cache
 artifacts
 
 front
+node_modules
+contracts
